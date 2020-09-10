@@ -24,7 +24,7 @@ else
     exit 1
 fi
 
-wget https://raw.githubusercontent.com/DeedWark/Docker-Tips/Docker-OhMyZsh/master/Dockerfile &>/dev/null 
+wget https://raw.githubusercontent.com/DeedWark/Docker-Hall/Docker-OhMyZsh/master/Dockerfile &>/dev/null 
 
 usermod -aG docker "$USER"
 docker build -t "$name" . &>/dev/null
