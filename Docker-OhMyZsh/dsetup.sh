@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $UID -ne 0 ] ; then
-	echo "You must launch with sudo!"
+	echo "Sudo required!"
 	exit 1
 fi
 
