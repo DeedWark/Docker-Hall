@@ -25,3 +25,31 @@ Check https://docs.docker.com/install/ to install it
 alias dockersql='docker start <NAME> && docker exec -it <NAME> mysql -uroot -p'
 > source ~/.bashrc
 ```
+
+____
+## Docker-OhMyZsh
+***To initialize a Docker with OhMyZsh***
+
+Run the script ***dsetup.sh***: ```sudo chmod +x dsetup.sh && ./dsetup.sh```
+Or follow these commands:
+
+Create a directory
+```
+mkdir venom && cd venom
+```
+And put the Dockerfile in...
+
+To build the image (in venom/)
+```
+sudo docker build -t venom .
+```
+
+To create the container:
+```
+sudo docker create -it --name="venom" venom:latest /bin/zsh
+```
+
+To enter in: (with ZSH as default shell)
+```
+sudo docker start -a -i venom
+```
