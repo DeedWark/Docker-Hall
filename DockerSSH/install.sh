@@ -11,7 +11,7 @@ docker create -it --name="secureshell" --hostname="ssh" --restart="always" secur
 
 docker start secureshell 2>/dev/null
 
-sshdocker=$(docker inspect -f \"{{ .NetworkSettings.IPAddress }}\" secureshell 2>/dev/null)
+sshdocker=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" secureshell 2>/dev/null)
 
 echo -e "secureshell IP: ${sshdocker}"
 
