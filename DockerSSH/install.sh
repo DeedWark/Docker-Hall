@@ -9,9 +9,9 @@ docker build -t secureshell .
 
 docker create -it --name="secureshell" --hostname="ssh" --restart="always" secureshell
 
-docker start secureshell
+docker start secureshell 2>/dev/null
 
-sshdocker=$(docker inspect -f \"{{ .NetworkSettings.IPAddress }}\" secureshell)
+sshdocker=$(docker inspect -f \"{{ .NetworkSettings.IPAddress }}\" secureshell 2>/dev/null)
 
 echo -e "secureshell IP: ${sshdocker}"
 
