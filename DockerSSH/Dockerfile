@@ -11,10 +11,10 @@ RUN echo 'root:dockerSSH' |chpasswd
 RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
-RUN /etc/init.dssh start &&\
+RUN /etc/init.d/ssh start &&\
     systemctl enable ssh
 
 WORKDIR /root
 
-ENTRYPOINT ["/bin/bash"]
+CMD ["/usr/sbin/sshd", "-D"]
 EXPOSE 22
