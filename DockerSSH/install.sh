@@ -5,6 +5,11 @@ if [ $UID -ne 0 ] ; then
 	exit 1
 fi
 
+read -r -p "Password for SSH: " sshpwd
+echo -e "Do not forget to change for production"
+
+sed -ri 's/dockerSSH/${sshpwd}/g' ./Dockerfile
+
 docker build -t secureshell .
 
 docker create -it --name="secureshell" --hostname="ssh" --restart="always" secureshell
